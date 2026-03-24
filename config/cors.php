@@ -22,6 +22,7 @@ return [
     'allowed_origins' => [
         'http://localhost:3000',
         'http://127.0.0.1:3000',
+        'http://xywww4wmjecfn0cksrsx4xvp.35.225.205.38.sslip.io',
         env('FRONTEND_URL', 'http://localhost:3000'),
         // Expo development URLs
         'exp://localhost:8081',

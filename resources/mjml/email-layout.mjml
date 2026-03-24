@@ -1,0 +1,71 @@
+<mjml>
+  <mj-head>
+    <mj-title>{{ $appName ?? 'BoroBazar' }}</mj-title>
+    <mj-attributes>
+      <mj-all font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" />
+      <mj-text font-size="14px" line-height="22px" color="#111827" />
+      <mj-button border-radius="10px" font-weight="600" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .muted { color: #6b7280; }
+      .divider { border-top: 1px solid #e5e7eb; }
+      .pill { background: #ecfdf3; border: 1px solid #bbf7d0; padding: 18px 24px; border-radius: 10px; }
+      .cta { background: #16a34a; color: #ffffff; }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#f5f5f5">
+    <mj-wrapper padding="24px 0">
+      <mj-section>
+        <mj-column>
+          <mj-image
+            href="{{ rtrim($frontendUrl ?? env('FRONTEND_URL', config('app.url')), '/') }}/"
+            src="{{ rtrim($frontendUrl ?? env('FRONTEND_URL', config('app.url')), '/') }}/assets/images/logo.svg"
+            alt="{{ $appName ?? 'BoroBazar' }}"/>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#ffffff" border-radius="12px" padding="0">
+        <mj-column>
+          <mj-wrapper padding="0">
+            <mj-section background-color="#16a34a" padding="20px 32px">
+              <mj-column>
+                <mj-text font-size="20px" font-weight="700" letter-spacing="0.02em" color="#ecfdf3">
+                  {{ $appName ?? 'BoroBazar' }}
+                </mj-text>
+              </mj-column>
+            </mj-section>
+
+            <mj-section padding="24px 32px 32px">
+              <mj-text font-size="22px" font-weight="700" margin="0 0 8px">
+                {{ $title ?? '' }}
+              </mj-text>
+              <mj-text css-class="muted" padding="0 0 24px">
+                {{ $subtitle ?? '' }}
+              </mj-text>
+
+              <!-- Content -->
+              <mj-raw>
+                {{ $slot ?? '' }}
+              </mj-raw>
+
+              <mj-divider border-color="#e5e7eb" padding="24px 0" />
+
+              <mj-text css-class="muted" font-size="13px" padding="0">
+                If you didn’t request this email, you can safely ignore it.
+              </mj-text>
+            </mj-section>
+          </mj-wrapper>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="16px 0 0">
+        <mj-column>
+          <mj-text css-class="muted" font-size="12px" align="center">
+            &copy; {{ date('Y') }} {{ $appName ?? 'BoroBazar' }}. All rights reserved.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>
+

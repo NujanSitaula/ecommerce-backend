@@ -1,0 +1,78 @@
+<mjml>
+  <mj-head>
+    <mj-title>{{ $appName ?? 'BoroBazar' }}</mj-title>
+    <mj-attributes>
+      <mj-all font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" />
+      <mj-text font-size="14px" line-height="22px" color="#111827" />
+      <mj-button border-radius="10px" font-weight="600" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .muted { color: #6b7280; }
+      .divider { border-top: 1px solid #e5e7eb; }
+      .otp-box { background-color: #ecfdf3; border-radius: 10px; padding: 18px 24px; text-align: center; border: 1px solid #bbf7d0; }
+      .otp-code { font-size: 28px; font-weight: 800; letter-spacing: 0.25em; color: #047857; }
+      .otp-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: #16a34a; margin-bottom: 6px; }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#f5f5f5">
+    <mj-wrapper padding="24px 0">
+      <mj-section>
+        <mj-column>
+          <mj-image
+            src="{{ rtrim(env('FRONTEND_URL', config('app.url')), '/') }}/assets/images/logo.svg"
+            alt="{{ $appName ?? 'BoroBazar' }}"
+            width="92px" />
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#ffffff" border-radius="12px" padding="0">
+        <mj-section background-color="#16a34a" padding="20px 32px">
+          <mj-column>
+            <mj-text font-size="20px" font-weight="700" letter-spacing="0.02em" color="#ecfdf3">
+              {{ $appName ?? 'BoroBazar' }}
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <mj-section padding="24px 32px 32px">
+          <mj-column>
+            <mj-text font-size="22px" font-weight="700" padding="0 0 8px">
+              Verify your email address
+            </mj-text>
+
+            <mj-text css-class="muted" padding="0 0 24px">
+              Hi {{ $user->name ?? 'there' }},<br />
+              Use the verification code below to complete your sign up and start shopping with {{ $appName ?? 'BoroBazar' }}.
+            </mj-text>
+
+            <mj-raw>
+              <div class="otp-box">
+                <div class="otp-label">Your one-time verification code</div>
+                <div class="otp-code">{{ $code }}</div>
+              </div>
+            </mj-raw>
+
+            <mj-text css-class="muted" padding="18px 0 0">
+              This code will expire in <strong>10 minutes</strong>. For your security, please do not share this code with anyone.
+            </mj-text>
+
+            <mj-divider border-color="#e5e7eb" padding="24px 0" />
+
+            <mj-text css-class="muted" padding="0">
+              If you didn’t request this email, you can safely ignore it. Your account will not be created without confirming this code.
+            </mj-text>
+          </mj-column>
+        </mj-section>
+      </mj-section>
+
+      <mj-section padding="16px 0 0">
+        <mj-column>
+          <mj-text font-size="12px" css-class="muted" align="center">
+            &copy; {{ date('Y') }} {{ $appName ?? 'BoroBazar' }}. All rights reserved.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>
+
